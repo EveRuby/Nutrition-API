@@ -58,7 +58,7 @@ if task == "A":
 
     url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/guessNutrition"
 
-    querystring = {"title":"recipe"}
+    querystring = {"title":recipe}
     headers = {
         'x-rapidapi-key': "a5ce2f9e6emsh998846a2687ac6dp1f998fjsn61c08831d7df",
         'x-rapidapi-host': "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
@@ -141,7 +141,7 @@ if task == "B":
     if email_request == "Y":
         print("------------------------")
         email=input("PLEASE ENTER YOUR EMIAL ADDRESS ")
-        print("GREAT, PLEASE ALLOW FOR A FEW MINUTES FOR THE EMAIL TO SHOW UP IN YOUR INBOX")
+        print("GREAT! PLEASE ALLOW FOR A FEW MINUTES FOR THE EMAIL TO SHOW UP IN YOUR INBOX")
     else: 
         print("------------------------")
         print ("THANK YOU FOR USING MEAL PALL!")
