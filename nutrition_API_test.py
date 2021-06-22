@@ -1,18 +1,13 @@
-import requests
-
-url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/guessNutrition"
-
-querystring = {"title":"egg benedict"}
-
-headers = {
-    'x-rapidapi-key': "a5ce2f9e6emsh998846a2687ac6dp1f998fjsn61c08831d7df",
-    'x-rapidapi-host': "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
-    }
-
-response = requests.request("GET", url, headers=headers, params=querystring)
-
-print(response.text)
-print(type(response.text))
-
-#{"recipesUsed":18,"calories":
+test_list = ["Geeks", None, "CS", None, None]
+  
+# printing original list 
+print("The original list is : " + str(test_list))
+  
+# using lambda
+# Converting None to empty string
+conv = lambda i : i or ''
+res = [conv(i) for i in test_list]
+  
+# printing result 
+print("The list after conversion of None values : " + str(res))
 

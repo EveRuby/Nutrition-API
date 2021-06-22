@@ -78,17 +78,17 @@ if task == "B":
     
     meal_plan={}
 
-    #Parameters: querystring = {"timeFrame":"day","targetCalories":"2000","diet":"vegetarian","exclude":"shellfish, olives"}
-
     targetCalories_input=input("-1- WHAT IS YOUR DAILY CALORY TARGET (e.g. 2000)? Press ""ENTER"" to skip. ")
     diet_input = input("-2- PREFERED DIET? Press ""ENTER"" to skip. ")
     exclude_input = input("-3- WHAT FOODS WOULD YOU LIKE TO EXCLUDE? Press ""ENTER"" to skip. ")
 
     url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/mealplans/generate"
 
-    querystring = {"timeFrame":"day","targetCalories": str(targetCalories_input),"diet": str(diet_input),"exclude":str(exclude_input)}
+    #querystring = {"timeFrame":"day","targetCalories": str(targetCalories_input),"diet": str(diet_input),"exclude":str(exclude_input)}
 
     #querystring = {"timeFrame":"day","targetCalories": None,"diet": None,"exclude": None}
+    
+    querystring = {"timeFrame":"day","targetCalories": targetCalories_input,"diet": str(diet_input),"exclude":str(exclude_input)}
 
     headers = {
     'x-rapidapi-key': "a5ce2f9e6emsh998846a2687ac6dp1f998fjsn61c08831d7df",
