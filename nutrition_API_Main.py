@@ -40,6 +40,7 @@ print("C: Find a recipe")
 
 task = input()
 
+
 if task == "A":
     
     print("YOU CHOSE TO LOOK UP NUTRIOTION INFORMATION")
@@ -70,6 +71,7 @@ if task == "A":
     print(parsed_response)
  
 
+
 if task == "B":
 
     print("GENERATE A MEAL PLAN WITH 3 SIMPLE QUESTIONS:")
@@ -86,8 +88,6 @@ if task == "B":
 
     querystring = {"timeFrame":"day","targetCalories": str(targetCalories_input),"diet": str(diet_input),"exclude":str(exclude_input)}
 
-    #querystring = {"timeFrame":"day","targetCalories":"2000","diet":"vegetarian","exclude":"shellfish, olives"}
-
     #querystring = {"timeFrame":"day","targetCalories": None,"diet": None,"exclude": None}
 
     headers = {
@@ -97,8 +97,42 @@ if task == "B":
 
     response = requests.request("GET", url, headers=headers, params=querystring)
 
-    print(response.text)
-    print(type(response.text))
+
+    #EXAMPLE RESPONSE: 
+    #{'meals': [{'id': 1100990, 'imageType': 'jpg', 'title': 'Blueberry, Chocolate & Cocao Superfood Pancakes - Gluten-Free/Paleo/Vegan', 'readyInMinutes': 30, 'servings': 2, 'sourceUrl': 'https://spoonacular.com/blueberry-chocolate-cocao-superfood-pancakes-gluten-free-paleo-vegan-1100990'}, 
+    
+    #{'id': 81273, 'imageType': 'jpg', 'title': 'Beef Pot Roast', 'readyInMinutes': 20, 'servings': 4, 'sourceUrl': 'http://www.myrecipes.com/recipe/beef-pot-roast-10000000780316/'}, 
+    
+    #{'id': 478685, 'imageType': 'jpg', 'title': 'Grilled chicken marinated in coconut cream', 'readyInMinutes': 45, 'servings': 4, 'sourceUrl': 'http://feastasia.casaveneracion.com/grilled-chicken-marinated-in-coconut-cream/'}], 
+    
+    #'nutrients': {'calories': 1999.78, 'protein': 129.44, 'fat': 123.78, 'carbohydrates': 98.47}}
+
+    print("------------------------")
+    print("YOUR SUGGESTED MEAL PLAN:")
+    print("------------------------")
+    parsed_response = json.loads(response.text)
+    breakfast=parsed_response["meals"][0]["title"]
+    lunch=parsed_response["meals"][1]["title"]
+    dinner=parsed_response["meals"][2]["title"]
+    total_cal=parsed_response["nutrients"]["calories"]
+    total_prot=parsed_response["nutrients"]["protein"]
+    total_fat=parsed_response["nutrients"]["fat"]
+    total_carb=parsed_response["nutrients"]["carbohydrates"]
+    print("BREAKFAST:", breakfast)
+    print("LUNCH:", lunch)
+    print("DINNER:", dinner)
+    print("------------------------")
+    print("NUTRIOTION:")
+    print("------------------------")
+    print("TOTAL CALORIES:", total_cal)
+    print("      PROTEIN:", total_prot)
+    print("      FAT:", total_fat)
+    print("      CARBOHYDRATES:", total_carb)
+    print("------------------------")
+    #print(parsed_response)
+
+    #print(response.text)
+    #print(type(response.text))
 
 
 if task == "C":
