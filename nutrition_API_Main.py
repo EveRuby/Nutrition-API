@@ -75,20 +75,26 @@ if task == "A":
 if task == "B":
 
     print("GENERATE A MEAL PLAN WITH 3 SIMPLE QUESTIONS:")
-    
-    meal_plan={}
 
+    #Getting user input
     targetCalories_input=input("-1- WHAT IS YOUR DAILY CALORY TARGET (e.g. 2000)? Press ""ENTER"" to skip. ")
     diet_input = input("-2- PREFERED DIET? Press ""ENTER"" to skip. ")
     exclude_input = input("-3- WHAT FOODS WOULD YOU LIKE TO EXCLUDE? Press ""ENTER"" to skip. ")
 
+    #Converting empty strings to "None" values
+    empty_string=str()
+    conv = lambda i : None
+    if targetCalories_input == empty_string:
+        targetCalories_input = conv(targetCalories_input)
+    if diet_input == empty_string:
+        diet_input = conv(diet_input)
+    if exclude_input == empty_string:
+        exclude_input = conv(exclude_input)
+
+    #Passing API parameters and getting a response
     url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/mealplans/generate"
-
-    #querystring = {"timeFrame":"day","targetCalories": str(targetCalories_input),"diet": str(diet_input),"exclude":str(exclude_input)}
-
-    #querystring = {"timeFrame":"day","targetCalories": None,"diet": None,"exclude": None}
     
-    querystring = {"timeFrame":"day","targetCalories": targetCalories_input,"diet": str(diet_input),"exclude":str(exclude_input)}
+    querystring = {"timeFrame":"day","targetCalories": targetCalories_input,"diet": diet_input,"exclude":exclude_input}
 
     headers = {
     'x-rapidapi-key': "a5ce2f9e6emsh998846a2687ac6dp1f998fjsn61c08831d7df",
@@ -96,7 +102,6 @@ if task == "B":
     }
 
     response = requests.request("GET", url, headers=headers, params=querystring)
-
 
     #EXAMPLE RESPONSE: 
     #{'meals': [{'id': 1100990, 'imageType': 'jpg', 'title': 'Blueberry, Chocolate & Cocao Superfood Pancakes - Gluten-Free/Paleo/Vegan', 'readyInMinutes': 30, 'servings': 2, 'sourceUrl': 'https://spoonacular.com/blueberry-chocolate-cocao-superfood-pancakes-gluten-free-paleo-vegan-1100990'}, 
@@ -107,6 +112,7 @@ if task == "B":
     
     #'nutrients': {'calories': 1999.78, 'protein': 129.44, 'fat': 123.78, 'carbohydrates': 98.47}}
 
+    #parsing and printing the response
     print("------------------------")
     print("YOUR SUGGESTED MEAL PLAN:")
     print("------------------------")
