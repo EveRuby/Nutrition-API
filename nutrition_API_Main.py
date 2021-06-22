@@ -41,6 +41,9 @@ print("C: Find a recipe")
 task = input()
 
 if task == "A":
+    
+    print("YOU CHOSE TO LOOK UP NUTRIOTION INFORMATION")
+    
     nutrition={}
     calories_input=input("Please enter the number of calories per day:")
     nutrition["calories"]=calories_input
@@ -50,7 +53,7 @@ if task == "A":
     nutrition["carbs"]=carbs_input
     print(nutrition)
 
-    recipe=input("Please enter a recipe you want to cook and hit 'enter'; write 'Done' when you have entered recipes for the day: ")
+    recipe=input("Please enter the name of a recipe you want to cook and hit 'enter'; write 'Done' when you have entered recipes for the day: ")
 
     url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/guessNutrition"
 
@@ -65,14 +68,39 @@ if task == "A":
     calories=int(parsed_response["calories"]["value"])
     print("The calories in your recipe are:", calories)
     print(parsed_response)
-    # print(response.text)
+ 
+
 
 
 if task == "B":
-    print("Task is B")
+
+    print("GENERATE A MEAL PLAN WITH 3 SIMPLE QUESTIONS:")
+    
+    meal_plan={}
+
+    #Parameters: querystring = {"timeFrame":"day","targetCalories":"2000","diet":"vegetarian","exclude":"shellfish, olives"}
+
+    target_calories=input("-1- WHAT IS YOUR DAILY CALORY TARGET (e.g. 2000)? Press ""ENTER"" to skip. ")
+    diet = input("-2- PREFERED DIET? Press ""ENTER"" to skip. ")
+    exclude = input("-3- WHAT FOODS WOULD YOU LIKE TO EXCLUDE? Press ""ENTER"" to skip. ")
+
+    url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/mealplans/generate"
+
+    querystring = {"timeFrame":"day","targetCalories":"2000","diet":"vegetarian","exclude":"shellfish, olives"}
+
+    headers = {
+    'x-rapidapi-key': "a5ce2f9e6emsh998846a2687ac6dp1f998fjsn61c08831d7df",
+    'x-rapidapi-host': "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
+    }
+
+    response = requests.request("GET", url, headers=headers, params=querystring)
+
+    print(response.text)
+    print(type(response.text))
 
 
-
+if task == "C":
+    print("YOU CHOSE TO FIND A RECIPE")
 
 
 
