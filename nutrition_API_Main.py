@@ -135,10 +135,17 @@ if task == "B":
     print("      FAT:", total_fat)
     print("      CARBOHYDRATES:", total_carb)
     print("------------------------")
-    #print(parsed_response)
-
-    #print(response.text)
-    #print(type(response.text))
+ 
+    #sending an email
+    email_request=input("WOULD YOU LIKE AN EMAIL WITH THE ABOVE INFORMATION - Y/N?")
+    if email_request == "Y":
+        print("------------------------")
+        email=input("PLEASE ENTER YOUR EMIAL ADDRESS ")
+        print("GREAT, PLEASE ALLOW FOR A FEW MINUTES FOR THE EMAIL TO SHOW UP IN YOUR INBOX")
+    else: 
+        print("------------------------")
+        print ("THANK YOU FOR USING MEAL PALL!")
+        print("REMEMBER: EVERYTHING IS GOOD IN MODERATION EVEN MODERATION :)")
 
 
 if task == "C":
