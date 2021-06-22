@@ -39,7 +39,7 @@ if task.upper() == "A":
     parsed_response = json.loads(response.text)
     calories=int(parsed_response["calories"]["value"])
     print("The calories in your recipe are:", calories)
-    print(parsed_response)
+    # print(parsed_response)
  
 
 
@@ -123,7 +123,7 @@ elif task.upper() == "C":
     print("YOU CHOSE TO FIND A RECIPE")
 
 else:
-    print("please re-run the app and enter a valid value")
+    print("Please re-run the app and enter a valid value")
 
 
 
