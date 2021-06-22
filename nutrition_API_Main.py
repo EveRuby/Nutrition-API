@@ -112,7 +112,7 @@ elif task.upper() == "B":
     if email_request == "Y":
         print("------------------------")
         email=input("PLEASE ENTER YOUR EMIAL ADDRESS ")
-        print("GREAT, PLEASE ALLOW FOR A FEW MINUTES FOR THE EMAIL TO SHOW UP IN YOUR INBOX")
+        print("GREAT! PLEASE ALLOW FOR A FEW MINUTES FOR THE EMAIL TO SHOW UP IN YOUR INBOX")
     else: 
         print("------------------------")
         print ("THANK YOU FOR USING MEAL PALL!")
