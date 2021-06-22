@@ -2,35 +2,6 @@ import requests
 import json
 
 
-# product_ids=[]
-# for p in products1:
-#     product_ids.append(str(p["id"]))
-
-# selected_ids=[]
-# while True:
-#     selected_id = input("Please enter a product identifier and hit 'enter'; write 'DONE' when there are no more items: ")
-#     if selected_id.upper() == "DONE":
-#         break
-#     else:
-#         if str(selected_id) in product_ids:
-#             selected_id=str(selected_id)
-#             selected_ids.append(selected_id)
-#         else:
-#             print("That ID is not valid, please enter another.")
-# print("-------------")
-# print("NORA'S GROCERY")
-# now= datetime.datetime.now()
-# now_formatted=now.strftime("%Y-%m-%d %H:%M:%S %p")
-# print("CHECKOUT AT:", now_formatted)
-# print("-------------")
-# if len(selected_ids)==0:
-#     print("No Items")
-# else:
-#     print("SELECTED PRODUCTS:")
-
-##ideally we will create a dictionary and store each item below in its own key
-
-
 print("WELCOME TO YOUR MEAL PAL!")
 print("WHAT WOULD YOU LIKE TO DO?")
 print("A: Look up nutrition information")
@@ -41,7 +12,7 @@ print("C: Find a recipe")
 task = input()
 
 
-if task == "A":
+if task.upper() == "A":
     
     print("YOU CHOSE TO LOOK UP NUTRIOTION INFORMATION")
     
@@ -58,7 +29,7 @@ if task == "A":
 
     url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/guessNutrition"
 
-    querystring = {"title":"recipe"}
+    querystring = {"title":recipe}
     headers = {
         'x-rapidapi-key': "a5ce2f9e6emsh998846a2687ac6dp1f998fjsn61c08831d7df",
         'x-rapidapi-host': "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
@@ -72,7 +43,7 @@ if task == "A":
  
 
 
-if task == "B":
+elif task.upper() == "B":
 
     print("GENERATE A MEAL PLAN WITH 3 SIMPLE QUESTIONS:")
 
@@ -148,8 +119,11 @@ if task == "B":
         print("REMEMBER: EVERYTHING IS GOOD IN MODERATION EVEN MODERATION :)")
 
 
-if task == "C":
+elif task.upper() == "C":
     print("YOU CHOSE TO FIND A RECIPE")
+
+else:
+    print("please re-run the app and enter a valid value")
 
 
 
