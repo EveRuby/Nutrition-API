@@ -14,34 +14,30 @@ task = input()
 
 if task.upper() == "A":
     
-    print("YOU CHOSE TO LOOK UP NUTRIOTION INFORMATION")
-    
-    nutrition={}
-    calories_input=input("Please enter the number of calories per day:")
-    nutrition["calories"]=calories_input
-    fat_input=input("Please enter the number of grams of fat per day:")
-    nutrition["fat"]=fat_input
-    carbs_input=input("Please enter the number of grams of carbohydrates per day:")
-    nutrition["carbs"]=carbs_input
-    print(nutrition)
-
-    recipe=input("Please enter the name of a recipe you want to cook and hit 'enter'; write 'Done' when you have entered recipes for the day: ")
+    print("YOU CHOSE TO LOOK UP NUTRITION INFORMATION")
+        
+    recipe=input("Please enter the name of a recipe you want to cook and hit 'enter': ")
 
     url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/guessNutrition"
 
     querystring = {"title":recipe}
     headers = {
-        'x-rapidapi-key': "a5ce2f9e6emsh998846a2687ac6dp1f998fjsn61c08831d7df",
-        'x-rapidapi-host': "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
-        }
+            'x-rapidapi-key': "a5ce2f9e6emsh998846a2687ac6dp1f998fjsn61c08831d7df",
+            'x-rapidapi-host': "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
+            }
 
     response = requests.request("GET", url, headers=headers, params=querystring)
     parsed_response = json.loads(response.text)
     calories=int(parsed_response["calories"]["value"])
-    print("The calories in your recipe are:", calories)
+    fat=int(parsed_response["fat"]["value"])
+    carbs=int(parsed_response["carbs"]["value"])
+    protein=int(parsed_response["protein"]["value"])
+    print("The nutrition information for ", recipe, " is:" )
+    print("Calories:", calories)
+    print("Fat: ", fat, "grams")
+    print("Carbs: ", carbs, "grams")
+    print("Protein: ", protein, "grams")
     # print(parsed_response)
- 
-
 
 elif task.upper() == "B":
 
