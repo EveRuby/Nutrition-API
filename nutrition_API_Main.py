@@ -1,6 +1,10 @@
 import requests
 import json
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
+api_key = os.environ["api_key"]
 
 print("WELCOME TO YOUR MEAL PAL!")
 print("WHAT WOULD YOU LIKE TO DO?")
@@ -22,7 +26,7 @@ if task.upper() == "A":
 
     querystring = {"title":recipe}
     headers = {
-            'x-rapidapi-key': "a5ce2f9e6emsh998846a2687ac6dp1f998fjsn61c08831d7df",
+            'x-rapidapi-key': api_key,
             'x-rapidapi-host': "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
             }
 
@@ -64,7 +68,7 @@ elif task.upper() == "B":
     querystring = {"timeFrame":"day","targetCalories": targetCalories_input,"diet": diet_input,"exclude":exclude_input}
 
     headers = {
-    'x-rapidapi-key': "a5ce2f9e6emsh998846a2687ac6dp1f998fjsn61c08831d7df",
+    'x-rapidapi-key': api_key,
     'x-rapidapi-host': "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
     }
 
