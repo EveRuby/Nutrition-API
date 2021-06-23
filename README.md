@@ -19,6 +19,8 @@ To use Meal Pal you must get an API Key from https://rapidapi.com/spoonacular/ap
 
 Once the envioronment is created navigate to the folder with the downloaded nutrition_API_Main.py file
 
+The API Key is only good for 50 requests per day.
+
 ## Run nutrition_API_Main.py File
 ```bash
 python nutrition_API_Main.py
