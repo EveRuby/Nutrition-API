@@ -10,7 +10,6 @@ print("WELCOME TO YOUR MEAL PAL!")
 print("WHAT WOULD YOU LIKE TO DO?")
 print("A: Look up nutrition information")
 print("B: Generate a meal plan")
-print("C: Find a recipe")
 
 
 task = input()
@@ -117,10 +116,6 @@ elif task.upper() == "B":
         print("------------------------")
         print ("THANK YOU FOR USING MEAL PALL!")
         print("REMEMBER: EVERYTHING IS GOOD IN MODERATION EVEN MODERATION :)")
-
-
-elif task.upper() == "C":
-    print("YOU CHOSE TO FIND A RECIPE")
 
 else:
     print("Please re-run the app and enter a valid value")
