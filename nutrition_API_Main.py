@@ -6,6 +6,7 @@ load_dotenv()
 
 api_key = os.environ["api_key"]
 
+print("---------START----------")
 print("WELCOME TO YOUR MEAL PAL!")
 print("WHAT WOULD YOU LIKE TO DO?")
 print("A: Look up nutrition information")
@@ -17,9 +18,11 @@ task = input()
 
 if task.upper() == "A":
     
+    print("------------------------")
     print("YOU CHOSE TO LOOK UP NUTRITION INFORMATION")
+    print("------------------------")
         
-    recipe=input("Please enter the name of a recipe you want to cook and hit 'enter': ")
+    recipe=input("PLEASE ENTER THE NAME OF A RECIPE YOU WANT TO COOK AND HIT 'ENTER': ")
 
     url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/guessNutrition"
 
@@ -35,16 +38,20 @@ if task.upper() == "A":
     fat=int(parsed_response["fat"]["value"])
     carbs=int(parsed_response["carbs"]["value"])
     protein=int(parsed_response["protein"]["value"])
-    print("The nutrition information for ", recipe, " is:" )
-    print("Calories:", calories)
-    print("Fat: ", fat, "grams")
-    print("Carbs: ", carbs, "grams")
-    print("Protein: ", protein, "grams")
-    # print(parsed_response)
+    print("------------------------")
+    print("NUTRIOTION INFORMATION FOR", recipe+":" )
+    print("------------------------")
+    print("CALORIES:", calories)
+    print("PROTEIN: ", protein, "grams")
+    print("FAT: ", fat, "grams")
+    print("CARBOHYDRATES: ", carbs, "grams")
+    
 
 elif task.upper() == "B":
 
+    print("------------------------")
     print("GENERATE A MEAL PLAN WITH 3 SIMPLE QUESTIONS:")
+    print("------------------------")
 
     #Getting user input
     targetCalories_input=input("-1- WHAT IS YOUR DAILY CALORY TARGET (e.g. 2000)? Press ""ENTER"" to skip. ")
@@ -98,27 +105,29 @@ elif task.upper() == "B":
     print("LUNCH:", lunch)
     print("DINNER:", dinner)
     print("------------------------")
-    print("NUTRIOTION:")
+    print("TOTAL DAILY NUTRIOTION:")
     print("------------------------")
-    print("TOTAL CALORIES:", total_cal)
-    print("      PROTEIN:", total_prot)
-    print("      FAT:", total_fat)
-    print("      CARBOHYDRATES:", total_carb)
-    print("------------------------")
- 
+    print("CALORIES:", total_cal)
+    print("PROTEIN:", total_prot)
+    print("FAT:", total_fat)
+    print("CARBOHYDRATES:", total_carb)
+    
     #sending an email
-    email_request=input("WOULD YOU LIKE AN EMAIL WITH THE ABOVE INFORMATION - Y/N?")
-    if email_request == "Y":
-        print("------------------------")
-        email=input("PLEASE ENTER YOUR EMIAL ADDRESS ")
-        print("GREAT! PLEASE ALLOW FOR A FEW MINUTES FOR THE EMAIL TO SHOW UP IN YOUR INBOX")
-    else: 
-        print("------------------------")
-        print ("THANK YOU FOR USING MEAL PALL!")
-        print("REMEMBER: EVERYTHING IS GOOD IN MODERATION EVEN MODERATION :)")
+    #email_request=input("WOULD YOU LIKE AN EMAIL WITH THE ABOVE INFORMATION - Y/N?")
+    #if email_request == "Y":
+    #    print("------------------------")
+    #    email=input("PLEASE ENTER YOUR EMIAL ADDRESS ")
+    #    print("GREAT! PLEASE ALLOW FOR A FEW MINUTES FOR THE EMAIL TO SHOW UP IN YOUR INBOX")
 
-else:
-    print("Please re-run the app and enter a valid value")
+   #else:
+    #print("Please re-run the app and enter a valid value")
+
+print("------------------------")
+print ("THANK YOU FOR USING MEAL PALL!")
+print("REMEMBER: EVERYTHING IS GOOD IN MODERATION, INCLUDING MODERATION  -- Oscar Wilde :)")
+print("-----------END----------")
+
+
 
 
 
