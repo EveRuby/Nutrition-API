@@ -1,0 +1,6 @@
+# ignore results of running tests:
+__pycache__
+.pytest_cache
+
+# ignore secret credentials:
+.env
