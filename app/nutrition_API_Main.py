@@ -99,7 +99,7 @@ if __name__ == '__main__':
         print("------------------------")
 
         #Getting user input
-        targetCalories_input=input("-1- WHAT IS YOUR DAILY CALORY TARGET (e.g. 2000)? Press ""ENTER"" to skip. ")
+        targetCalories_input=input("-1- WHAT IS YOUR DAILY CALORIE TARGET (e.g. 2000)? Press ""ENTER"" to skip. ")
         diet_input = input("-2- PREFERRED DIET? Press ""ENTER"" to skip. ")
         exclude_input = input("-3- WHAT FOODS WOULD YOU LIKE TO EXCLUDE? Press ""ENTER"" to skip. ")
 
@@ -155,7 +155,7 @@ if __name__ == '__main__':
 
 
     print("------------------------")
-    print ("THANK YOU FOR USING MEAL PALL!")
+    print ("THANK YOU FOR USING MEAL PAL!")
     print("REMEMBER: EVERYTHING IS GOOD IN MODERATION, INCLUDING MODERATION  -- Oscar Wilde :)")
     print("-----------END----------")
 
