@@ -14,7 +14,7 @@ pip install -r requirements.txt # (after specifying desired packages inside)
 ```
 
 ## API Key:
-To use Meal Pal you must get an API Key from https://rapidapi.com/spoonacular/api/recipe-food-nutrition/.  Create a .env file and add a variable "api_key" with your API Key value.
+To use Meal Pal you must get an API Key from https://rapidapi.com/spoonacular/api/recipe-food-nutrition/.  Create a .env file and add a variable "API_KEY" with your API Key value.
 
 
 Once the envioronment is created navigate to the folder with the downloaded nutrition_API_Main.py file
